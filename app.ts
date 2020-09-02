@@ -1,5 +1,8 @@
-function add(n1:number , n2:number){
-    return n1+n2;
+function add(n1:number|string , n2:number|string){
+    if (typeof n1 == "number"&& typeof n2 =="number"){
+        return n1+n2;
+    }
+    return n1.toString()+n2.toString();
 }
 
 const number1 = 3

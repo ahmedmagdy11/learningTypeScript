@@ -7,7 +7,9 @@ I am using this README to Document the learning process of <b>TypeScript</b> Lan
 - `boolean` type
 - `object` type
 - `array` types
-
+- `literal` types 
+- `functions return` types
+- `unknown` type 
 you can use type to define what type of parmaters are used into a certain function 
 
 <b>example:</b> 
@@ -63,3 +65,36 @@ example:
 `enum global_var {ADMIN='' , KEY='some key'}`. 
 
 
+<b>literal types</b>
+you can define literal types with using code like this
+example: `const asNumber = 'as_number'` is considered a literal type cause it will never change. 
+
+<b>Type Aliases</b>
+define type Aliases is pretty easy by using the key word `type`
+example:`type myNewType = number|string;` 
+or can even assign it to literal types.
+example: `type myNewType = 'as_number'|'as_string';`
+
+IMO <b>literal types</b> will shine if you are using them as *flags* in your code.
+
+<b>Return types for functions</b>.
+you can declare a return type for function like this
+example:
+`function doSomething(n: number,s: string ):number`
+`{ return n;}`.
+
+another example of why this could be very useful is when defining a call back inside your function:
+`function add(n1: number, n2: number,callBack: (result:number)=>void):number{
+  return n1+n2;
+}`.
+a function that doesn't return anything has types `void` or `any`.
+
+<b>Unknown type</b> 
+
+`Unknown` type is different from `any`, it assigns the variable with the first type it's assigned to.
+example:`let name: unknown; 
+name = "your name";
+name = 5; //will give you an error during development time` 
+
+<b>Never type</b>
+newer type rarely used, can use it if your function will never return anything, for example it `throws` an error or have infinte loop.
